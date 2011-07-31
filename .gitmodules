@@ -1,0 +1,9 @@
+[submodule "plugins/magit"]
+	path = plugins/magit
+	url = https://github.com/magit/magit.git
+[submodule "plugins/mk-project"]
+	path = plugins/mk-project
+	url = git://github.com/mattkeller/mk-project.git
+[submodule "plugins/auto-complete"]
+	path = plugins/auto-complete
+	url = git://github.com/m2ym/auto-complete.git
