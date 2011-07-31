@@ -54,3 +54,9 @@
 				) auto-mode-alist))
 
 
+;; CUSTOM STYLES
+
+(c-add-style "my-c-style"
+             '("stroustrup"
+	       (c-offsets-alist .
+				(innamespace . 0)))))
