@@ -80,3 +80,8 @@
 (setq pop-up-windows nil)
 
 
+(require 'workgroups)
+(workgroups-mode 1)
+
+(setq wg-prefix-key (kbd "C-z"))
+(require 'uniquify)

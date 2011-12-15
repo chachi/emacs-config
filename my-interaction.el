@@ -34,6 +34,11 @@
 (global-set-key "\C-xw" 'windmove-up)
 (global-set-key "\C-xd" 'windmove-right)
 
+(global-set-key (kbd "M-<left>") 'windmove-left)
+(global-set-key (kbd "M-<down>") 'windmove-down)
+(global-set-key (kbd "M-<up>") 'windmove-up)
+(global-set-key (kbd "M-<right>") 'windmove-right)
+
 (define-key global-map [f7] 'recompile)
 (define-key global-map [f8] 'next-error)
 
@@ -48,13 +53,21 @@
 
 (require 'yasnippet)
 (yas/initialize)
-;(yas/load-directory "~/.emacs.d/plugins/yasnippet-read-only/snippets")
+(yas/load-directory "~/.emacs.d/emacs-config/plugins/yasnippet-0.6.1c/snippets/")
 
 (add-hook 'auto-save-hook
 	  (lambda ()
 	    (desktop-autosave-save)))
 
 (require 'auto-complete)
+
+(add-to-list 'ac-dictionary-directories
+		     "~/.emacs.d/emacs-config/plugins/auto-complete/dict/")
+(require 'auto-complete-config)
+(ac-config-default)
+
+
+
 
 ;; show paren matches
 (setq blink-matching-paren t)
@@ -74,11 +87,11 @@
 
 (put 'downcase-region 'disabled nil)
 
-(global-auto-revert-mode)
+;; (global-auto-revert-mode) ;; This really screws up git rebasing...
 
 (global-set-key "\C-c\C-v" 'pyflakes)
 
-(global-set-key "\C-xn" 'flymake-goto-next-error)
+;; (global-set-key "\C-xn" 'flymake-goto-next-error)
 
 (global-set-key "\M-o" 'project-find-file-ido)
 
@@ -98,3 +111,14 @@
 
 
 
+(global-set-key [?\C-,] (lambda () (interactive) (scroll-up 1)))
+(global-set-key [?\C-.] (lambda () (interactive) (scroll-down 1)))
+
+(require 'unit-test)
+
+(define-key global-map [f6] 'run-unit-tests)
+(define-key global-map [f9] 'set-unit-test-command)
+(setq unit-test-command (lambda ()
+                          (zerop
+                           (shell-command "~/src/slam.git/main/OnTarget/libs/libmisb/tests/test_misb"))))
+;; (define-key global-map (kbd "C-c o") 'open-unit-test-file)

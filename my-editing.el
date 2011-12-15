@@ -79,3 +79,21 @@
 (require 'autopair)
 (autopair-global-mode 1)
 
+
+;; Major life saver --- auto-indents yanked code
+(dolist (command '(yank yank-pop))
+       (eval `(defadvice ,command (after indent-region activate)
+                (and (not current-prefix-arg)
+                     (member major-mode '(emacs-lisp-mode lisp-mode
+                                                          clojure-mode    scheme-mode
+                                                          haskell-mode    ruby-mode
+                                                          rspec-mode      python-mode
+                                                          c-mode          c++-mode
+                                                          objc-mode       latex-mode
+                                                          plain-tex-mode))
+                     (let ((mark-even-if-inactive transient-mark-mode))
+                       (indent-region (region-beginning) (region-end) nil))))))
+
+(setq compilation-skip-threshold 1)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'indent-for-tab-command)

@@ -1,6 +1,6 @@
 (provide 'my-languages)
 
-(require 'csharp-mode)
+;(require 'csharp-mode)
 
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-k" 'kill-region)))
 

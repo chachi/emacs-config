@@ -6,7 +6,22 @@
   (interactive)
   (c++-mode)
   (subword-mode)
-  (c-set-style "K&R")
+  (c-set-style "my-c-style")
+  (setq tab-width 4)
+  (setq c-basic-offset 4)
+  (setq-default show-trailing-whitespace t)
+  ;(setq compile-command "make install -j2 -k -C ~/jack/nao-man/ ")
+  (which-func-mode 1)
+  (setq indent-tabs-mode nil)
+  (whitespace-mode 1)
+  )
+
+(defun jack-c-mode ()
+  "C++ mode made to fit the way I like it."
+  (interactive)
+  (c-mode)
+  (subword-mode)
+  (c-set-style "my-c-style")
   (setq tab-width 4)
   (setq c-basic-offset 4)
   (setq-default show-trailing-whitespace t)
@@ -53,10 +68,18 @@
 				("\\.java$" . jack-java-mode)
 				) auto-mode-alist))
 
+(setq auto-mode-alist (append '(("\\.c$" . jack-c-mode)) auto-mode-alist))
 
 ;; CUSTOM STYLES
 
 (c-add-style "my-c-style"
-             '("stroustrup"
+             '("BSD"
 	       (c-offsets-alist .
-				(innamespace . 0))))
+				((innamespace . 0))
+				)))
+;; (add-hook 'c-mode-common-hook
+;; 	  '(c-set-style "my-c-style"))
+;; (add-hook 'c++-mode-hook
+;; 	  '(c-set-style "my-c-style"))
+(setq-default c-basic-offset 4)
+(setq c-default-style "my-c-style")
