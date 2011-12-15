@@ -3,7 +3,10 @@
 	url = https://github.com/magit/magit.git
 [submodule "plugins/mk-project"]
 	path = plugins/mk-project
-	url = git://github.com/mattkeller/mk-project.git
+	url = https://github.com/mattkeller/mk-project.git
 [submodule "plugins/auto-complete"]
 	path = plugins/auto-complete
-	url = git://github.com/m2ym/auto-complete.git
+	url = https://github.com/m2ym/auto-complete.git
+[submodule "plugins/workgroups"]
+	path = plugins/workgroups
+	url = https://github.com/tlh/workgroups.el.git
