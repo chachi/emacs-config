@@ -77,8 +77,11 @@
 (setq-default ispell-program-name "ispell")
 
 (require 'autopair)
-(autopair-global-mode 1)
+(add-hook 'term-mode-hook
+          #'(lambda () (setq autopair-dont-activate t)))
 
+(add-hook 'c-mode-common-hook #'(lambda () (autopair-mode)))
+(add-hook 'python-mode-hook #'(lambda () (autopair-mode)))
 
 ;; Major life saver --- auto-indents yanked code
 (dolist (command '(yank yank-pop))

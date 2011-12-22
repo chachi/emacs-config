@@ -69,6 +69,27 @@
 ;;             (shutdown-hook nil)
 ;;             ))
 
+(project-def "slam"
+             '((basedir "~/src/slam.git/main/OnTarget")
+               (src-patterns ("*.h" "*.cc" "*.hpp" "*.cpp" "*.s"))
+               (ignore-patterns ("*.o" "*.html" "*/build/*" " *.d" "#*" "*~"))
+               (tags-file "~/src/slam.git/TAGS")
+               (file-list-cache "~/src/slam.git/files")
+               (open-files-cache "~/src/slam.git/open-files")
+               (vcs git)
+               (compile-cmd "make -j25 -k -C ~/src/slam.git/main/OnTarget/ --no-print-directory")
+               (ack-args "--cpp")
+               (startup-hook setup-slam-test)
+               (shutdown-hook nil)
+               ))
 
 
+(defun setup-slam-test ()
+  (interactive)
+  (setq unit-test-command
+        (lambda ()
+          (setenv "MSPCCS_DATA" "/home/jack/src/slam.git/main/Dependencies/geotrans3.0/data")
+          (setenv "LD_LIBRARY_PATH" "/home/jack/src/slam.git/main/Dependencies/svs/bin:/home/jack/src/slam.git/main/Dependencies/swissRanger/lib:/home/jack/src/slam.git/main/Dependencies/opencv/cv/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/cxcore/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/highgui/.libs:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib64:/home/jack/src/slam.git/main/OnTarget/libs/lib64" )
+          (shell-command "cd /home/jack/src/slam.git/main/OnTarget/libs/libmisb/tests/ && ./test_misb"))
+        ))
 

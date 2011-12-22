@@ -27,7 +27,8 @@
 (defun desktop-autosave-save ()
   (desktop-save-in-desktop-dir))
 
-(ido-mode 1)
+(require 'ido)
+(ido-mode 'both)
 
 (global-set-key "\C-xa" 'windmove-left)
 (global-set-key "\C-xs" 'windmove-down)
@@ -53,7 +54,8 @@
 
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/emacs-config/plugins/yasnippet-0.6.1c/snippets/")
+;(yas/load-directory "~/.emacs.d/emacs-config/plugins/yasnippet-0.6.1c/snippets/")
+
 
 (add-hook 'auto-save-hook
 	  (lambda ()
@@ -89,7 +91,7 @@
 
 ;; (global-auto-revert-mode) ;; This really screws up git rebasing...
 
-(global-set-key "\C-c\C-v" 'pyflakes)
+;; (global-set-key "\C-c\C-v" 'pyflakes)
 
 ;; (global-set-key "\C-xn" 'flymake-goto-next-error)
 
@@ -109,8 +111,6 @@
 ;; (load-library "flymake-cursor")
 ;; (add-hook 'python-mode-hook 'flymake-find-file-hook)
 
-
-
 (global-set-key [?\C-,] (lambda () (interactive) (scroll-up 1)))
 (global-set-key [?\C-.] (lambda () (interactive) (scroll-down 1)))
 
@@ -122,3 +122,15 @@
                           (zerop
                            (shell-command "~/src/slam.git/main/OnTarget/libs/libmisb/tests/test_misb"))))
 ;; (define-key global-map (kbd "C-c o") 'open-unit-test-file)
+
+(require 'multi-term)
+(add-hook 'term-mode-hook
+  (lambda()
+    (local-unset-key (kbd "<tab>"))))
+(defadvice term-char-mode (after term-char-mode-fixes ())
+  (set (make-local-variable 'cua-mode) nil)
+  (set (make-local-variable 'transient-mark-mode) nil)
+  (set (make-local-variable 'global-hl-line-mode) nil)
+  (ad-activate 'term-char-mode)
+  (term-set-escape-char ?\C-x))
+(global-set-key (kbd "<XF86Launch5>") 'multi-term)

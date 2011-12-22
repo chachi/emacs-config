@@ -15,7 +15,6 @@
 		("\\.cmake\\'" . cmake-mode))
 	      auto-mode-alist))
 
-(require 'ess-site)
+;; (require 'ess-site)
 
-;(require 'auctex)
-
+;; (require 'auctex)

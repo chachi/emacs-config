@@ -71,7 +71,7 @@
 		(buffer-name)
 		)))
       (menu-bar-mode t)
-      
+
       )) ;; end if window-system
 
 
@@ -84,4 +84,9 @@
 (workgroups-mode 1)
 
 (setq wg-prefix-key (kbd "C-z"))
+
 (require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
+(require 'midnight)
+(clean-buffer-list)
