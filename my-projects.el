@@ -69,15 +69,29 @@
 ;;             (shutdown-hook nil)
 ;;             ))
 
+(defun find-slam-files (context)
+  (concat "find /home/jack/src/slam.git/main/OnTarget/ -type d"
+          " \\( -name *build* -o -name *include* -o -wholename *OnTarget/share* "
+          " -o -wholename *OnTarget/ortho* "
+          " -o -name *ortho_sessions* \\) -prune "
+          " -o -name *~"
+          " -o \\( -name *.cc -o -name *.h -o -name *Makefile* -o -name *.xml \\) "
+          " -print" )
+  )
+
 (project-def "slam"
              '((basedir "~/src/slam.git/main/OnTarget")
                (src-patterns ("*.h" "*.cc" "*.hpp" "*.cpp" "*.s"))
                (ignore-patterns ("*.o" "*.html" "*/build/*" " *.d" "#*" "*~"))
+               (ignore-dirs ("bin" "include" "share" "build" "docs" "lib64"))
                (tags-file "~/src/slam.git/TAGS")
                (file-list-cache "~/src/slam.git/files")
                (open-files-cache "~/src/slam.git/open-files")
                (vcs git)
                (compile-cmd "make -j25 -k -C ~/src/slam.git/main/OnTarget/ --no-print-directory")
+               (src-find-cmd find-slam-files)
+               (grep-find-cmd find-slam-files)
+               (index-find-cmd find-slam-files)
                (ack-args "--cpp")
                (startup-hook setup-slam-test)
                (shutdown-hook nil)
@@ -92,4 +106,3 @@
           (setenv "LD_LIBRARY_PATH" "/home/jack/src/slam.git/main/Dependencies/svs/bin:/home/jack/src/slam.git/main/Dependencies/swissRanger/lib:/home/jack/src/slam.git/main/Dependencies/opencv/cv/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/cxcore/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/highgui/.libs:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib64:/home/jack/src/slam.git/main/OnTarget/libs/lib64" )
           (shell-command "cd /home/jack/src/slam.git/main/OnTarget/libs/libmisb/tests/ && ./test_misb"))
         ))
-

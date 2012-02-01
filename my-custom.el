@@ -83,3 +83,5 @@
 ;; 	  '(c-set-style "my-c-style"))
 (setq-default c-basic-offset 4)
 (setq c-default-style "my-c-style")
+
+(setq c-doc-comment-style 'javadoc)

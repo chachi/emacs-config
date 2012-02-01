@@ -149,3 +149,9 @@
   ido-use-url-at-point nil         ; don't use url at point (annoying)
   ido-max-prospects 8              ; don't spam my minibuffer
   ido-confirm-unique-completion t) ; wait for RET, even with unique completion
+(defun insert-doc-comment ()
+  (interactive)
+  (insert "/**  */")
+  (dotimes (number 3) (backward-char)))
+
+(global-set-key (kbd "M-:") 'insert-doc-comment)
