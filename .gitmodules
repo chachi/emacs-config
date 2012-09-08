@@ -10,3 +10,6 @@
 [submodule "plugins/workgroups"]
 	path = plugins/workgroups
 	url = https://github.com/tlh/workgroups.el.git
+[submodule "plugins/geiser"]
+	path = plugins/geiser
+	url = http://git.sv.gnu.org/r/geiser.git
