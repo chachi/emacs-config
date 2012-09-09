@@ -1,15 +1,6 @@
-[submodule "plugins/magit"]
-	path = plugins/magit
-	url = https://github.com/magit/magit.git
 [submodule "plugins/mk-project"]
 	path = plugins/mk-project
 	url = https://github.com/mattkeller/mk-project.git
-[submodule "plugins/auto-complete"]
-	path = plugins/auto-complete
-	url = https://github.com/m2ym/auto-complete.git
-[submodule "plugins/workgroups"]
-	path = plugins/workgroups
-	url = https://github.com/tlh/workgroups.el.git
 [submodule "plugins/geiser"]
 	path = plugins/geiser
 	url = http://git.sv.gnu.org/r/geiser.git
