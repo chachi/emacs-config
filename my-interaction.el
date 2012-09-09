@@ -133,7 +133,8 @@
   (set (make-local-variable 'global-hl-line-mode) nil)
   (ad-activate 'term-char-mode)
   (term-set-escape-char ?\C-x))
-(global-set-key (kbd "<XF86Launch5>") 'multi-term)
+(unwind-protect
+    (global-set-key (kbd "<XF86Launch5>") 'multi-term))
 
 (setq
   ido-save-directory-list-file "~/.emacs.d/cache/ido.last"

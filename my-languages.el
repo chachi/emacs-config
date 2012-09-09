@@ -18,3 +18,8 @@
 ;; (require 'ess-site)
 
 ;; (require 'auctex)
+
+(setenv "PATH" (concat (getenv "PATH") ":/Applications/Racket\ v5.3/bin"))
+(normal-top-level-add-to-load-path '("/Applications/Racket\ v5.3"))
+(load-file "~/.emacs.d/emacs-config/plugins/geiser/elisp/geiser.el")
+(require 'quack)
