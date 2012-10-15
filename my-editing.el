@@ -100,3 +100,7 @@
 (setq compilation-skip-threshold 0)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'indent-for-tab-command)
+
+(require 'iedit)
+(define-key global-map (kbd "C-;") 'iedit-mode)
+(define-key isearch-mode-map (kbd "C-;") 'iedit-mode)
