@@ -56,7 +56,7 @@
              (concat (file-name-directory buffer-file-name) "%b") )
           (buffer-name)
           )))
-(menu-bar-mode t)
+
 
 (defun toggle-fullscreen (&optional f)
   (interactive)

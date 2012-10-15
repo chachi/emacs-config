@@ -53,10 +53,6 @@
 (setq ring-bell-function 'ignore)
 
 (require 'yasnippet)
-(yas/initialize)
-;(yas/load-directory "~/.emacs.d/emacs-config/plugins/yasnippet-0.6.1c/snippets/")
-
-
 (add-hook 'auto-save-hook
 	  (lambda ()
 	    (desktop-autosave-save)))
@@ -156,3 +152,4 @@
   (dotimes (number 3) (backward-char)))
 
 (global-set-key (kbd "M-:") 'insert-doc-comment)
+(global-set-key "\C-x\C-d" 'dired)

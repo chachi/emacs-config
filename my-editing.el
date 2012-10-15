@@ -97,6 +97,6 @@
                      (let ((mark-even-if-inactive transient-mark-mode))
                        (indent-region (region-beginning) (region-end) nil))))))
 
-(setq compilation-skip-threshold 1)
+(setq compilation-skip-threshold 0)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'indent-for-tab-command)
