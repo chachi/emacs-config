@@ -69,29 +69,30 @@
 ;;             (shutdown-hook nil)
 ;;             ))
 
-(defun find-slam-files (context)
-  (concat "find /home/jack/src/slam.git/main/OnTarget/ -type d"
-          " \\( -name *build* -o -name *include* -o -wholename *OnTarget/share* "
-          " -o -wholename *OnTarget/ortho* "
+(defun find-fmvot-files (context)
+  (concat "find /home/jack/src/fmvot/ -type d"
+          " \\( -name *build* -o -name *bin* -o -name *include* -o -wholename *share* "
           " -o -name *ortho_sessions* \\) -prune "
           " -o -name *~"
-          " -o \\( -name *.cc -o -name *.h -o -name *Makefile* -o -name *.xml \\) "
+          " -o \\( -name \"*.cc\" -o -name \"*.h\" -o -name \"*Makefile*\" -o -name \"*.xml\" "
+          " -o -name \"*.ui\" "
+          " -o -name \"*.txt\" -o -name \"*.cmake\" -o -name \"*.make\" -o -name \"*.sh\" \\) "
           " -print" )
   )
 
 (project-def "slam"
-             '((basedir "~/src/slam.git/main/OnTarget")
+             '((basedir "~/src/fmvot")
                (src-patterns ("*.h" "*.cc" "*.hpp" "*.cpp" "*.s"))
                (ignore-patterns ("*.o" "*.html" "*/build/*" " *.d" "#*" "*~"))
                (ignore-dirs ("bin" "include" "share" "build" "docs" "lib64"))
-               (tags-file "~/src/slam.git/TAGS")
-               (file-list-cache "~/src/slam.git/files")
-               (open-files-cache "~/src/slam.git/open-files")
+               (tags-file "~/src/fmvot/TAGS")
+               (file-list-cache "~/src/fmvot/files")
+               (open-files-cache "~/src/fmvot/open-files")
                (vcs git)
-               (compile-cmd "make -j25 -k -C ~/src/slam.git/main/OnTarget/ --no-print-directory")
-               (src-find-cmd find-slam-files)
-               (grep-find-cmd find-slam-files)
-               (index-find-cmd find-slam-files)
+               (compile-cmd "make -j25 -k -C ~/src/fmvot/ --no-print-directory")
+               (src-find-cmd find-fmvot-files)
+               (grep-find-cmd find-fmvot-files)
+               (index-find-cmd find-fmvot-files)
                (ack-args "--cpp")
                (startup-hook setup-slam-test)
                (shutdown-hook nil)
@@ -103,6 +104,6 @@
   (setq unit-test-command
         (lambda ()
           (setenv "MSPCCS_DATA" "/home/jack/src/slam.git/main/Dependencies/geotrans3.0/data")
-          (setenv "LD_LIBRARY_PATH" "/home/jack/src/slam.git/main/Dependencies/svs/bin:/home/jack/src/slam.git/main/Dependencies/swissRanger/lib:/home/jack/src/slam.git/main/Dependencies/opencv/cv/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/cxcore/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/highgui/.libs:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib64:/home/jack/src/slam.git/main/OnTarget/libs/lib64" )
-          (shell-command "cd /home/jack/src/slam.git/main/OnTarget/libs/libmisb/tests/ && ./test_misb"))
+          (setenv "LD_LIBRARY_PATH" "/home/jack/src/slam.git/main/Dependencies/svs/bin:/home/jack/src/slam.git/main/Dependencies/swissRanger/lib:/home/jack/src/slam.git/main/Dependencies/opencv/cv/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/cxcore/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/highgui/.libs:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib64:/home/jack/src/fmvot/libs/lib64" )
+          (shell-command "cd /home/jack/src/fmvot/libs/libmisb/tests/ && ./test_misb"))
         ))
