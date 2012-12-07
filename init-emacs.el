@@ -3,6 +3,7 @@
       (normal-top-level-add-subdirs-to-load-path))
 (server-start)
 
+(require 'tramp)
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
