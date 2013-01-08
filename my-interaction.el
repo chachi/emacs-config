@@ -53,6 +53,7 @@
 (setq ring-bell-function 'ignore)
 
 (require 'yasnippet)
+
 (add-hook 'auto-save-hook
 	  (lambda ()
 	    (desktop-autosave-save)))
@@ -60,12 +61,11 @@
 (require 'auto-complete)
 
 (add-to-list 'ac-dictionary-directories
-		     "~/.emacs.d/emacs-config/plugins/auto-complete/dict/")
+             "~/.emacs.d/emacs-config/plugins/auto-complete/dict/")
 (require 'auto-complete-config)
 (ac-config-default)
 
-
-
+(ac-set-trigger-key (kbd "TAB"))
 
 ;; show paren matches
 (setq blink-matching-paren t)
