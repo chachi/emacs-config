@@ -42,8 +42,8 @@
                             (background-color . "white")))
 
 ;; modeline colors
-(set-face-background 'modeline "DarkOliveGreen2")
-(set-face-foreground 'modeline "black")
+(set-face-background 'mode-line "DarkOliveGreen2")
+(set-face-foreground 'mode-line "black")
 
 ;;  (mouse-avoidance-mode 'animate) ;; Cool...but annoying
 
