@@ -104,3 +104,5 @@
 (require 'iedit)
 (define-key global-map (kbd "C-;") 'iedit-mode)
 (define-key isearch-mode-map (kbd "C-;") 'iedit-mode)
+
+(global-set-key (kbd "C-M-y") 'replace-rectangle)

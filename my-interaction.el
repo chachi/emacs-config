@@ -65,7 +65,7 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
-(ac-set-trigger-key (kbd "TAB"))
+(ac-set-trigger-key "TAB")
 
 ;; show paren matches
 (setq blink-matching-paren t)
@@ -153,3 +153,7 @@
 
 (global-set-key (kbd "M-:") 'insert-doc-comment)
 (global-set-key "\C-x\C-d" 'dired)
+
+(setq compilation-always-kill t)
+(setq compilation-skip-threshold 2)
+(global-set-key (kbd "<f2>") 'multi-term)
