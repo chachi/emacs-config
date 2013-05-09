@@ -66,6 +66,7 @@
 (ac-config-default)
 
 (ac-set-trigger-key "TAB")
+(setq ac-auto-start nil)
 
 ;; show paren matches
 (setq blink-matching-paren t)
