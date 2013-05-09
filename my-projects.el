@@ -112,10 +112,11 @@
   "Switch between a header (.h) and an C++ implementation (.cc) file using mk-project support"
   (interactive)
   (let ((file (file-name-base))
-        (ext (file-name-extension (buffer-file-name)))
-        (project-files (ffip-project-files)))
-    (message (concat "ext: " ext))
+        (ext (file-name-extension (buffer-file-name))))
     (message (concat file (if (equalp ext "h") "\.cc" "\.h")))
     (project-find-file (concat "/" file (if (equalp ext "h") "\.cc" "\.h")))))
 
 (global-set-key (kbd "M-s") 'switch-between-h-and-cc)
+
+(provide 'my-projects)
+;;; my-projects.el ends here
