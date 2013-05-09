@@ -71,18 +71,18 @@
 
 (defun find-fmvot-files (context)
   (concat "find /home/jack/src/fmvot/ -type d"
-          " \\( -name *build* -o -name *bin* -o -name *include* -o -wholename *share* "
-          " -o -name *ortho_sessions* \\) -prune "
-          " -o -name *~"
+          " \\( -name \"*build\" -o -name \"*bin\" -o -wholename \"*share\" "
+          " -o -name \"*ortho_sessions*\" \\) -prune "
+          " -o -name \"*~\""
           " -o \\( -name \"*.cc\" -o -name \"*.h\" -o -name \"*Makefile*\" -o -name \"*.xml\" "
-          " -o -name \"*.ui\" "
+          " -o -name \"*.ui\" -o -name \"*.md\" -o -name \"*.py\""
           " -o -name \"*.txt\" -o -name \"*.cmake\" -o -name \"*.make\" -o -name \"*.sh\" \\) "
           " -print" )
   )
 
 (project-def "slam"
              '((basedir "~/src/fmvot")
-               (src-patterns ("*.h" "*.cc" "*.hpp" "*.cpp" "*.s"))
+               (src-patterns ("*.h" "*.cc" "*.hpp" "*.cpp" "*.s" "*.py" "*.sh" "*.md" "*.txt" "*.cmake"))
                (ignore-patterns ("*.o" "*.html" "*/build/*" " *.d" "#*" "*~"))
                (ignore-dirs ("bin" "include" "share" "build" "docs" "lib64"))
                (tags-file "~/src/fmvot/TAGS")
@@ -107,3 +107,15 @@
           (setenv "LD_LIBRARY_PATH" "/home/jack/src/slam.git/main/Dependencies/svs/bin:/home/jack/src/slam.git/main/Dependencies/swissRanger/lib:/home/jack/src/slam.git/main/Dependencies/opencv/cv/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/cxcore/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/highgui/.libs:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib64:/home/jack/src/fmvot/libs/lib64" )
           (shell-command "cd /home/jack/src/fmvot/libs/libmisb/tests/ && ./test_misb"))
         ))
+
+(defun switch-between-h-and-cc ()
+  "Switch between a header (.h) and an C++ implementation (.cc) file using mk-project support"
+  (interactive)
+  (let ((file (file-name-base))
+        (ext (file-name-extension (buffer-file-name)))
+        (project-files (ffip-project-files)))
+    (message (concat "ext: " ext))
+    (message (concat file (if (equalp ext "h") "\.cc" "\.h")))
+    (project-find-file (concat "/" file (if (equalp ext "h") "\.cc" "\.h")))))
+
+(global-set-key (kbd "M-s") 'switch-between-h-and-cc)
