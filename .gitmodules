@@ -1,6 +1,6 @@
 [submodule "plugins/mk-project"]
 	path = plugins/mk-project
-	url = https://github.com/mattkeller/mk-project.git
+	url = https://github.com/chachi/mk-project.git
 [submodule "plugins/geiser"]
 	path = plugins/geiser
 	url = http://git.sv.gnu.org/r/geiser.git
