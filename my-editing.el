@@ -98,11 +98,25 @@
                        (indent-region (region-beginning) (region-end) nil))))))
 
 (setq compilation-skip-threshold 0)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'before-save-hook 'indent-for-tab-command)
+(add-hook 'c-mode-common-hook
+	  (lambda()
+	    (add-hook 'write-contents-functions
+		      (lambda()
+			(save-excursion
+			  (delete-trailing-whitespace))
+			(indent-for-tab-command)))))
 
 (require 'iedit)
 (define-key global-map (kbd "C-;") 'iedit-mode)
 (define-key isearch-mode-map (kbd "C-;") 'iedit-mode)
 
 (global-set-key (kbd "C-M-y") 'replace-rectangle)
+
+(require 'paredit)
+(setq my-lisp-par-hook #'(lambda ()
+			   (paredit-mode 1)
+			   (autopair-mode -1)))
+(add-hook 'lisp-mode-hook my-lisp-par-hook)
+(add-hook 'emacs-lisp-mode-hook my-lisp-par-hook)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)

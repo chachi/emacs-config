@@ -80,33 +80,27 @@
           " -print" )
   )
 
-(project-def "slam"
-             '((basedir "~/src/fmvot")
-               (src-patterns ("*.h" "*.cc" "*.hpp" "*.cpp" "*.s" "*.py" "*.sh" "*.md" "*.txt" "*.cmake"))
-               (ignore-patterns ("*.o" "*.html" "*/build/*" " *.d" "#*" "*~"))
-               (ignore-dirs ("bin" "include" "share" "build" "docs" "lib64"))
-               (tags-file "~/src/fmvot/TAGS")
-               (file-list-cache "~/src/fmvot/files")
-               (open-files-cache "~/src/fmvot/open-files")
+(setq my-project-source-patterns
+      '("*.h" "*.cc" "*.hpp" "*.cpp" "*.s" "*.py" "*.sh" "*.md" "*.txt" "*.cmake"))
+
+(setq my-project-ignore-patterns
+      '("*.o" "*.html" "*/build/*" " *.d" "#*" "*~" ".pyc"))
+
+(setq sfmpy-base-dir (expand-file-name "~/src/rpg/sfmpy/"))
+(project-def "sfmpy"
+             `((basedir ,sfmpy-base-dir)
+               (src-patterns ,my-project-source-patterns)
+               (ignore-patterns ,my-project-ignore-patterns)
+               (ignore-dirs '())
+               (tags-file ,(concat sfmpy-base-dir "TAGS"))
+               (file-list-cache ,(concat sfmpy-base-dir "files"))
+               (open-files-cache ,(concat sfmpy-base-dir "open-files"))
                (vcs git)
-               (compile-cmd "make -j25 -k -C ~/src/fmvot/ --no-print-directory")
-               (src-find-cmd find-fmvot-files)
-               (grep-find-cmd find-fmvot-files)
-               (index-find-cmd find-fmvot-files)
-               (ack-args "--cpp")
-               (startup-hook setup-slam-test)
+               (compile-cmd "")
+               (ack-args "--py")
+               (startup-hook nil)
                (shutdown-hook nil)
                ))
-
-
-(defun setup-slam-test ()
-  (interactive)
-  (setq unit-test-command
-        (lambda ()
-          (setenv "MSPCCS_DATA" "/home/jack/src/slam.git/main/Dependencies/geotrans3.0/data")
-          (setenv "LD_LIBRARY_PATH" "/home/jack/src/slam.git/main/Dependencies/svs/bin:/home/jack/src/slam.git/main/Dependencies/swissRanger/lib:/home/jack/src/slam.git/main/Dependencies/opencv/cv/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/cxcore/src/.libs:/home/jack/src/slam.git/main/Dependencies/opencv/highgui/.libs:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib:/home/jack/src/slam.git/main/Dependencies/ptam_deps/lib64:/home/jack/src/fmvot/libs/lib64" )
-          (shell-command "cd /home/jack/src/fmvot/libs/libmisb/tests/ && ./test_misb"))
-        ))
 
 (defun switch-between-h-and-cc ()
   "Switch between a header (.h) and an C++ implementation (.cc) file using mk-project support"
