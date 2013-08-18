@@ -1,5 +1,3 @@
-(provide 'my-moving)
-
 ;;----Moving around---
 ;; Scroll one line at a time
 (setq scroll-step 1)
@@ -24,3 +22,5 @@
 (setq next-line-add-newlines nil)
 
 (global-set-key "\C-xr" 'rgrep)
+
+(provide 'my-moving)

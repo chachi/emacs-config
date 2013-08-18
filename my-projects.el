@@ -1,5 +1,3 @@
-(provide 'my-projects)
-
 (global-set-key (kbd "C-c p c") 'project-compile)
 (global-set-key (kbd "C-c p l") 'project-load)
 (global-set-key (kbd "C-c p g") 'project-grep)
@@ -114,3 +112,4 @@
 
 (provide 'my-projects)
 ;;; my-projects.el ends here
+

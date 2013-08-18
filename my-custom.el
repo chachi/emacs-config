@@ -1,5 +1,3 @@
-(provide 'my-custom)
-
 ;;; We define modes for c++, python, and java
 (defun jack-c++-mode ()
   "C++ mode made to fit the way I like it."
@@ -9,7 +7,6 @@
   (c-set-style "my-c-style")
   (setq tab-width 4)
   (setq c-basic-offset 4)
-  (setq-default show-trailing-whitespace t)
   ;(setq compile-command "make install -j2 -k -C ~/jack/nao-man/ ")
   (which-func-mode 1)
   (setq indent-tabs-mode nil)
@@ -24,7 +21,6 @@
   (c-set-style "my-c-style")
   (setq tab-width 4)
   (setq c-basic-offset 4)
-  (setq-default show-trailing-whitespace t)
   ;(setq compile-command "make install -j2 -k -C ~/jack/nao-man/ ")
   (which-func-mode 1)
   (setq indent-tabs-mode nil)
@@ -37,7 +33,6 @@
   (subword-mode)
   (setq tab-width 4)
   (setq c-basic-offset 4)
-  (setq-default show-trailing-whitespace t)
   (which-func-mode 1)
   (setq indent-tabs-mode nil)
   (whitespace-mode 1)
@@ -49,7 +44,6 @@
   (subword-mode)    ; Uncomment to treat camelText words as separate
   (setq tab-width 4)
   (setq c-basic-offset 4)
-  (setq-default show-trailing-whitespace t)
   (which-func-mode 1)
   (setq indent-tabs-mode nil)
   ;(setq compile-command "ant compile")
@@ -85,3 +79,7 @@
 (setq c-default-style "my-c-style")
 
 (setq c-doc-comment-style 'javadoc)
+
+(provide 'my-custom)
+;;; my-custom.el ends here
+

@@ -1,5 +1,3 @@
-(provide 'my-colors)
-
 ;; Turn on pretty font colors
 (global-font-lock-mode t)
 (setq font-lock-maximum-decoration 3)
@@ -13,3 +11,7 @@
 ;; (when (fboundp 'global-hl-line-mode)
 ;;   (global-hl-line-mode t))
 ;; turn it on for all modes by default
+
+(provide 'my-colors)
+;;; my-colors.el ends here
+

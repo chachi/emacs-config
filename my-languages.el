@@ -1,5 +1,3 @@
-(provide 'my-languages)
-
 ;(require 'csharp-mode)
 
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-k" 'kill-region)))
@@ -73,3 +71,8 @@
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
 
+(require 'markdown-mode)
+(require 'yaml-mode)
+
+(provide 'my-languages)
+;;; my-languages.el ends here

@@ -1,5 +1,3 @@
-(provide 'my-env)
-
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
                           "[ \t\n]*$"
@@ -20,3 +18,5 @@
 (setenv "PATH" (concat (getenv "PATH") ":/opt/local/bin"))
 (setq exec-path (append exec-path '("/opt/local/bin")))
 
+(provide 'my-env)
+;;; my-env.el ends here

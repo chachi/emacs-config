@@ -1,5 +1,3 @@
-(provide 'my-editing)
-
 ;; Turn on selection
 (setq transient-mark-mode 't highlight-nonselected-windows 't)
 
@@ -119,4 +117,8 @@
 (add-hook 'lisp-mode-hook my-lisp-par-hook)
 (add-hook 'emacs-lisp-mode-hook my-lisp-par-hook)
 
+(require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(provide 'my-editing)
+;;; my-editing.el ends here

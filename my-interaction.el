@@ -1,5 +1,3 @@
-(provide 'my-interaction)
-
 ;; Typing "yes" or "no" takes too long---use "y" or "n"
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -158,3 +156,6 @@
 (setq compilation-always-kill t)
 (setq compilation-skip-threshold 2)
 (global-set-key (kbd "<f2>") 'multi-term)
+
+(provide 'my-interaction)
+;;; my-interaction.el ends here

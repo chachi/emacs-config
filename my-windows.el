@@ -1,5 +1,3 @@
-(provide 'my-windows)
-
 ;; Put scroll bar on the right side
 (set-scroll-bar-mode 'right)
 (set-scroll-bar-mode nil)
@@ -83,3 +81,5 @@
 
 (require 'midnight)
 (clean-buffer-list)
+
+(provide 'my-windows)
