@@ -1,10 +1,12 @@
 ;; Following code adapted from Emacs-Prelude @
 ;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
+(require 'cl-lib)
 (defvar my-packages '(
 		      ack-and-a-half
 		      auctex
 		      auto-complete
 		      auto-indent-mode
+		      autopair
 		      clojure-mode
 		      cmake-mode
 		      coffee-mode
@@ -50,9 +52,9 @@
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
-  (loop for p in my-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
+  (cl-loop for p in my-packages
+        when (not (package-installed-p p)) do (cl-return nil)
+        finally (cl-return t)))
 
 (unless (my-packages-installed-p)
   ;; check for new packages (package versions)
