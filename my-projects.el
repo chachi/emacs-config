@@ -12,61 +12,6 @@
 
 (require 'mk-project)
 
-;; (project-def "tool"
-;;           '((basedir "~/robocup/nbites/src/tool/")
-;;             (src-patterns ("*.java" "*.h" "*.cpp"))
-;;             (ignore-patterns ("*.class"))
-;;             (tags-file "~/robocup/nbites/src/tool/TAGS")
-;;             (file-list-cache "~/robocup/nbites/src/tool/files")
-;;             (open-files-cache "~/robocup/nbites/src/tool/open-files")
-;;             (vcs git)
-;;             (compile-cmd "ant -emacs -f ~/robocup/nbites/src/tool/build.xml compile visionlink")
-;;             (ack-args nil)
-;;             (startup-hook nil)
-;;             (shutdown-hook nil)
-;;             ))
-
-;; (project-def "man"
-;;           '((basedir "~/robocup/nbites/src/man/")
-;;             (src-patterns ("*.py" "*.h" "*.cpp" "*.s"))
-;;             (ignore-patterns ("*.o" "*.html"))
-;;             (tags-file "~/robocup/nbites/src/man/TAGS")
-;;             (file-list-cache "~/robocup/nbites/src/man/files")
-;;             (open-files-cache "~/robocup/nbites/src/man/open-files")
-;;             (vcs git)
-;;             (compile-cmd "make -j4 -k -C ~/robocup/nbites/build/man/straight/ --no-print-directory")
-;;             (ack-args "--java --cpp --python")
-;;             (startup-hook nil)
-;;             (shutdown-hook nil)
-;;             ))
-
-;; (project-def "remote"
-;;           '((basedir "~/robocup/nbites/src/remote/")
-;;             (src-patterns ("*.java"))
-;;             (ignore-patterns ("*.class" "*.html"))
-;;             (tags-file "~/robocup/nbites/src/remote/TAGS")
-;;             (file-list-cache "~/robocup/nbites/src/remote/files")
-;;             (open-files-cache "~/robocup/nbites/src/remote/open-files")
-;;             (vcs git)
-;;             (compile-cmd "ant -f ~/robocup/nbites/src/remote/build.xml")
-;;             (ack-args "--java")
-;;             (startup-hook nil)
-;;             (shutdown-hook nil)
-;;             ))
-;; (project-def "thesis"
-;;           '((basedir "~/Dropbox/Bowdoin/Senior/Honors/thesis/")
-;;             (src-patterns ("*.tex"))
-;;             (ignore-patterns ("*.html"))
-;;             (tags-file "~/Dropbox/Bowdoin/Senior/Honors/thesis/TAGS")
-;;             (file-list-cache "~/Dropbox/Bowdoin/Senior/Honors/thesis/files")
-;;             (open-files-cache "~/Dropbox/Bowdoin/Senior/Honors/thesis/open-files")
-;;             (vcs git)
-;;             (compile-cmd "make -C ~/Dropbox/Bowdoin/Senior/Honors/thesis/ clean && make -C ~/Dropbox/Bowdoin/Senior/Honors/thesis/")
-;;             (ack-args nil)
-;;             (startup-hook nil)
-;;             (shutdown-hook nil)
-;;             ))
-
 (defun find-fmvot-files (context)
   (concat "find /home/jack/src/fmvot/ -type d"
           " \\( -name \"*build\" -o -name \"*bin\" -o -wholename \"*share\" "
