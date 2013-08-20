@@ -7,6 +7,12 @@
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
+;; basic initialization, (require) non-ELPA packages, etc.
+(setq package-enable-at-startup nil)
+(package-initialize)
+;; (require) your ELPA packages, configure them as normal
+
+(require 'my-packages)
 (require 'my-colors)
 (require 'my-moving)
 (require 'my-env)
