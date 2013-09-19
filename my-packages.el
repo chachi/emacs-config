@@ -3,6 +3,7 @@
 (require 'cl-lib)
 (defvar my-packages '(
 		      ack-and-a-half
+		      anything
 		      auctex
 		      auto-complete
 		      auto-indent-mode
@@ -34,6 +35,7 @@
 		      paredit
 		      popup
 		      projectile
+		      protobuf-mode
 		      python
 		      quack
 		      rainbow-mode

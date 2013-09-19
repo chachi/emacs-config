@@ -10,6 +10,7 @@
 (require 'cmake-mode)
 (setq auto-mode-alist
       (append '(("CMakeLists\\.txt\\'" . cmake-mode)
+		("Rakefile" . ruby-mode)
 		("\\.cmake\\'" . cmake-mode))
 	      auto-mode-alist))
 
@@ -73,6 +74,7 @@
 
 (require 'markdown-mode)
 (require 'yaml-mode)
+(require 'protobuf-mode)
 
 (provide 'my-languages)
 ;;; my-languages.el ends here

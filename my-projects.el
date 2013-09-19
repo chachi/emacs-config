@@ -29,7 +29,7 @@
 (setq my-project-ignore-patterns
       '("*.o" "*.html" "*/build/*" " *.d" "#*" "*~" ".pyc"))
 
-(setq sfmpy-base-dir (expand-file-name "~/src/rpg/sfmpy/"))
+(setq sfmpy-base-dir (expand-file-name "~/src/sfmpy/"))
 (project-def "sfmpy"
              `((basedir ,sfmpy-base-dir)
                (src-patterns ,my-project-source-patterns)
@@ -45,13 +45,29 @@
                (shutdown-hook nil)
                ))
 
+(setq rslam-base-dir (expand-file-name "~/src/rslam/"))
+(project-def "rslam"
+             `((basedir ,rslam-base-dir)
+               (src-patterns ,my-project-source-patterns)
+               (ignore-patterns ,my-project-ignore-patterns)
+               (ignore-dirs '())
+               (tags-file ,(concat rslam-base-dir "TAGS"))
+               (file-list-cache ,(concat rslam-base-dir "files"))
+               (open-files-cache ,(concat rslam-base-dir "open-files"))
+               (vcs git)
+               (compile-cmd "make -C ~/src/build/rslam/")
+               (ack-args "--cpp")
+               (startup-hook nil)
+               (shutdown-hook nil)
+               ))
+
 (defun switch-between-h-and-cc ()
   "Switch between a header (.h) and an C++ implementation (.cc) file using mk-project support"
   (interactive)
   (let ((file (file-name-base))
         (ext (file-name-extension (buffer-file-name))))
-    (message (concat file (if (equalp ext "h") "\.cc" "\.h")))
-    (project-find-file (concat "/" file (if (equalp ext "h") "\.cc" "\.h")))))
+    (message (concat file (if (equalp ext "h") "\.cpp" "\.h")))
+    (project-find-file (concat "/" file (if (equalp ext "h") "\.cpp" "\.h")))))
 
 (global-set-key (kbd "M-s") 'switch-between-h-and-cc)
 

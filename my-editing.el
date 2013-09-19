@@ -120,5 +120,7 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+(require 'anything)
+
 (provide 'my-editing)
 ;;; my-editing.el ends here
