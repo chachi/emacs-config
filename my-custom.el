@@ -1,14 +1,16 @@
 ;;; We define modes for c++, python, and java
+;;; Code:
+(load-library "google-c-style")
 (defun jack-c++-mode ()
   "C++ mode made to fit the way I like it."
   (interactive)
   (c++-mode)
   (subword-mode)
-  (c-set-style "my-c-style")
-  (setq tab-width 4)
-  (setq c-basic-offset 4)
+  (google-set-c-style)
+  ;; (setq tab-width 4)
+  ;; (setq c-basic-offset 4)
   ;(setq compile-command "make install -j2 -k -C ~/jack/nao-man/ ")
-  (which-func-mode 1)
+  (which-function-mode 1)
   (setq indent-tabs-mode nil)
   (whitespace-mode 1)
   )
@@ -18,11 +20,11 @@
   (interactive)
   (c-mode)
   (subword-mode)
-  (c-set-style "my-c-style")
-  (setq tab-width 4)
-  (setq c-basic-offset 4)
+  (google-set-c-style)
+  ;; (setq tab-width 4)
+  ;; (setq c-basic-offset 4)
   ;(setq compile-command "make install -j2 -k -C ~/jack/nao-man/ ")
-  (which-func-mode 1)
+  (which-function-mode 1)
   (setq indent-tabs-mode nil)
   (whitespace-mode 1)
   )
@@ -33,7 +35,7 @@
   (subword-mode)
   (setq tab-width 4)
   (setq c-basic-offset 4)
-  (which-func-mode 1)
+  (which-function-mode 1)
   (setq indent-tabs-mode nil)
   (whitespace-mode 1)
   )
@@ -44,7 +46,7 @@
   (subword-mode)    ; Uncomment to treat camelText words as separate
   (setq tab-width 4)
   (setq c-basic-offset 4)
-  (which-func-mode 1)
+  (which-function-mode 1)
   (setq indent-tabs-mode nil)
   ;(setq compile-command "ant compile")
   (whitespace-mode 1)
@@ -71,12 +73,13 @@
 	       (c-offsets-alist .
 				((innamespace . 0))
 				)))
+
 ;; (add-hook 'c-mode-common-hook
 ;; 	  '(c-set-style "my-c-style"))
 ;; (add-hook 'c++-mode-hook
 ;; 	  '(c-set-style "my-c-style"))
 (setq-default c-basic-offset 4)
-(setq c-default-style "my-c-style")
+;;(setq c-default-style "google-c-style")
 
 (setq c-doc-comment-style 'javadoc)
 
