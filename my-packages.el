@@ -18,6 +18,7 @@
 		      deft
 		      desktop
 		      expand-region
+		      exec-path-from-shell
 		      flycheck
 		      gist
 		      groovy-mode
