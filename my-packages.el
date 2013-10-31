@@ -25,11 +25,9 @@
 		      haml-mode
 		      handlebars-mode
 		      haskell-mode
-		      httpd
 		      inf-ruby
 		      jedi
 		      magit
-		      magithub
 		      markdown-mode
 		      multi-term
 		      mustache-mode
@@ -38,7 +36,6 @@
 		      projectile
 		      protobuf-mode
 		      python
-		      quack
 		      rainbow-mode
 		      ruby-mode
 		      ruby-tools
@@ -50,7 +47,6 @@
 		      yaml-mode
 		      yari
 		      yasnippet
-		      yasnippet-bundle
 		      )
   "A list of packages to ensure are installed at launch.")
 
