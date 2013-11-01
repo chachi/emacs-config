@@ -19,11 +19,13 @@
 (require 'my-moving)
 (require 'my-env)
 (require 'my-windows)
-(require 'my-interaction)
 (require 'my-custom)
+(require 'my-interaction)
 (require 'my-languages)
 (require 'my-vcs)
 (require 'my-editing)
 (require 'my-projects)
+
+(color-theme-solarized-dark)
 
 (cd "~/")

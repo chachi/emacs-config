@@ -55,10 +55,11 @@
                (file-list-cache ,(concat rslam-base-dir "files"))
                (open-files-cache ,(concat rslam-base-dir "open-files"))
                (vcs git)
-               (compile-cmd "make -C ~/src/build/rslam/")
+               (compile-cmd "rake -f ~/src/Rakefile test_rslam")
                (ack-args "--cpp")
                (startup-hook nil)
                (shutdown-hook nil)
+	       (tags-cmd "ctags -e --extra=fq -L - -o TAGS")
                ))
 
 (defun switch-between-h-and-cc ()
