@@ -12,22 +12,22 @@
 
 (require 'mk-project)
 
-(defun find-fmvot-files (context)
-  (concat "find /home/jack/src/fmvot/ -type d"
-          " \\( -name \"*build\" -o -name \"*bin\" -o -wholename \"*share\" "
-          " -o -name \"*ortho_sessions*\" \\) -prune "
-          " -o -name \"*~\""
-          " -o \\( -name \"*.cc\" -o -name \"*.h\" -o -name \"*Makefile*\" -o -name \"*.xml\" "
-          " -o -name \"*.ui\" -o -name \"*.md\" -o -name \"*.py\""
-          " -o -name \"*.txt\" -o -name \"*.cmake\" -o -name \"*.make\" -o -name \"*.sh\" \\) "
-          " -print" )
+(defun find-rslam-files (dir)
+  (concat "find " dir " -type d"
+	  " \\( -name \"*build\" -o -name \"*build_android\" -o -name \"*bin\" -o -wholename \"*share\" "
+	  " -o -name \"*ortho_sessions*\" \\) -prune "
+	  " -o -name \"*~\""
+	  " -o \\( -name \"*.cc\" -o -name \"*.h\" -o -name \"*Makefile*\" -o -name \"*.xml\" "
+	  " -o -name \"*.ui\" -o -name \"*.md\" -o -name \"*.py\""
+	  " -o -name \"*.txt\" -o -name \"*.cmake\" -o -name \"*.make\" -o -name \"*.sh\" -o -name \"*.cpp\" \\) "
+	  " -print" )
   )
 
 (setq my-project-source-patterns
       '("*.h" "*.cc" "*.hpp" "*.cpp" "*.s" "*.py" "*.sh" "*.md" "*.txt" "*.cmake"))
 
 (setq my-project-ignore-patterns
-      '("*.o" "*.html" "*/build/*" " *.d" "#*" "*~" ".pyc"))
+      '("*.o" "*.html" "*/build/*" "*build/*" "*build_android/*" " *.d" "#*" "*~" ".pyc"))
 
 (setq sfmpy-base-dir (expand-file-name "~/src/sfmpy/"))
 (project-def "sfmpy"
@@ -48,9 +48,10 @@
 (setq rslam-base-dir (expand-file-name "~/src/rslam/"))
 (project-def "rslam"
              `((basedir ,rslam-base-dir)
+	       (index-find-cmd ,(find-rslam-files "/Users/jack/src/rslam/"))
                (src-patterns ,my-project-source-patterns)
                (ignore-patterns ,my-project-ignore-patterns)
-               (ignore-dirs '())
+               (ignore-dirs '("*build*" "*build_android*"))
                (tags-file ,(concat rslam-base-dir "TAGS"))
                (file-list-cache ,(concat rslam-base-dir "files"))
                (open-files-cache ,(concat rslam-base-dir "open-files"))
