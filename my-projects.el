@@ -18,7 +18,7 @@
 	  " -o -name \"*ortho_sessions*\" \\) -prune "
 	  " -o -name \"*~\""
 	  " -o \\( -name \"*.cc\" -o -name \"*.h\" -o -name \"*Makefile*\" -o -name \"*.xml\" "
-	  " -o -name \"*.ui\" -o -name \"*.md\" -o -name \"*.py\""
+	  " -o -name \"*.ui\" -o -name \"*.md\" -o -name \"*.py\" -o -name \"*.hpp\" -o -name \"*.proto\""
 	  " -o -name \"*.txt\" -o -name \"*.cmake\" -o -name \"*.make\" -o -name \"*.sh\" -o -name \"*.cpp\" \\) "
 	  " -print" )
   )
@@ -64,12 +64,16 @@
                ))
 
 (defun switch-between-h-and-cc ()
-  "Switch between a header (.h) and an C++ implementation (.cc) file using mk-project support"
+  "Switch between a header (.h) and an C++ implementation (.cc/.cpp) file using mk-project support"
   (interactive)
-  (let ((file (file-name-base))
-        (ext (file-name-extension (buffer-file-name))))
-    (message (concat file (if (equalp ext "h") "\.cpp" "\.h")))
-    (project-find-file (concat "/" file (if (equalp ext "h") "\.cpp" "\.h")))))
+  (let* ((file (file-name-base))
+	 (ext (file-name-extension (buffer-file-name)))
+	 (header-regex "[h|hpp]")
+	 (impl-regex "[cc|cpp|cxx|c]")
+	 (newfile (concat file (if (string-match "h" ext)
+				   (concat "\." impl-regex)
+				 (concat "\." header-regex)))))
+    (project-find-file newfile)))
 
 (global-set-key (kbd "M-s") 'switch-between-h-and-cc)
 
