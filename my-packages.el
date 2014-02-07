@@ -13,7 +13,6 @@
 		      coffee-mode
 		      color-theme
 		      color-theme-solarized
-		      cppcheck
 		      dash
 		      deft
 		      desktop
