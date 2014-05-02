@@ -1,6 +1,6 @@
 #! /bin/bash
 
-git submodule update
+git submodule update --init --recursive;
 
 pushd $(pwd) > /dev/null
 cd plugins/
