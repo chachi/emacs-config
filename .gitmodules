@@ -7,3 +7,6 @@
 [submodule "plugins/cpputils-cmake"]
 	path = plugins/cpputils-cmake
 	url = https://github.com/chachi/cpputils-cmake.git
+[submodule "plugins/cmake-font-lock"]
+	path = plugins/cmake-font-lock
+	url = https://github.com/Lindydancer/cmake-font-lock.git
