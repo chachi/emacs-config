@@ -19,6 +19,9 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
+(set-face-foreground font-lock-comment-face "OrangeRed3")
+(set-face-foreground font-lock-comment-delimiter-face "OrangeRed4")
+
 (provide 'my-colors)
 ;;; my-colors.el ends here
 
