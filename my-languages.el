@@ -93,5 +93,9 @@
 		'(lambda ()(interactive) (gud-gdb (concat "gdb --fullname "
 							  (cppcm-get-exe-path-current-buffer)))))
 
+(autoload 'andersl-cmake-font-lock-activate "andersl-cmake-font-lock" nil t)
+(require 'andersl-cmake-font-lock)
+(add-hook 'cmake-mode-hook 'andersl-cmake-font-lock-activate)
+
 (provide 'my-languages)
 ;;; my-languages.el ends here
