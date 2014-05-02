@@ -21,6 +21,7 @@
 
 (set-face-foreground font-lock-comment-face "OrangeRed3")
 (set-face-foreground font-lock-comment-delimiter-face "OrangeRed4")
+(set-face-foreground font-lock-doc-string-face "OrangeRed3")
 
 (provide 'my-colors)
 ;;; my-colors.el ends here
