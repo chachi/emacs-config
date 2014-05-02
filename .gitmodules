@@ -4,3 +4,6 @@
 [submodule "plugins/geiser"]
 	path = plugins/geiser
 	url = http://git.sv.gnu.org/r/geiser.git
+[submodule "plugins/cpputils-cmake"]
+	path = plugins/cpputils-cmake
+	url = https://github.com/chachi/cpputils-cmake.git
