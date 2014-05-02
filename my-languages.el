@@ -76,5 +76,22 @@
 (require 'yaml-mode)
 (require 'protobuf-mode)
 
+(require 'cpputils-cmake)
+(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
+(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
+
+;; OPTIONAL, somebody reported that they can use this package with Fortran
+(add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
+
+;;; Configure cpputils-cmake for use with rpg-cmake (def_library/def_executable)
+(setq cppcm-cmake-target-regex
+      "^\s*[^#]*\s*\\(\\(?:add\\|def\\)_\\(?:executable\\|library\\)\\)\s*(\\([^\s]+\\)")
+(setq cppcm-cmake-exe-regex "^\\(?:def\\|add\\)_executable")
+
+;; ;; OPTIONAL, avoid typing full path when starting gdb
+(global-set-key (kbd "C-c C-g")
+		'(lambda ()(interactive) (gud-gdb (concat "gdb --fullname "
+							  (cppcm-get-exe-path-current-buffer)))))
+
 (provide 'my-languages)
 ;;; my-languages.el ends here
