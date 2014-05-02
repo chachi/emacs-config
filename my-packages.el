@@ -27,6 +27,7 @@
 		      inf-ruby
 		      jedi
 		      magit
+		      matlab-mode
 		      markdown-mode
 		      multi-term
 		      mustache-mode
