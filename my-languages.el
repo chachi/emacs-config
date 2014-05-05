@@ -85,7 +85,7 @@
 
 ;;; Configure cpputils-cmake for use with rpg-cmake (def_library/def_executable)
 (setq cppcm-cmake-target-regex
-      "^\s*[^#]*\s*\\(\\(?:add\\|def\\)_\\(?:executable\\|library\\)\\)\s*(\\([^\s]+\\)")
+      "^\s*[^#]*\s*\\(\\(?:add\\|def\\)_\\(?:executable\\|library\\)\\)\s*(\\(\s*[^\s]+\\)")
 (setq cppcm-cmake-exe-regex "^\\(?:def\\|add\\)_executable")
 
 ;; ;; OPTIONAL, avoid typing full path when starting gdb
