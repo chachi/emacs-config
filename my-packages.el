@@ -32,7 +32,6 @@
 		      multi-term
 		      mustache-mode
 		      paredit
-		      pep8
 		      popup
 		      projectile
 		      protobuf-mode
