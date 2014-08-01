@@ -156,6 +156,7 @@
 (setq compilation-always-kill t)
 (setq compilation-skip-threshold 2)
 (global-set-key (kbd "<f2>") 'multi-term)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (provide 'my-interaction)
 ;;; my-interaction.el ends here
