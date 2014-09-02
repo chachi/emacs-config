@@ -254,7 +254,7 @@ See the variable `todochiku-icons' for a list of available icons."
 This would be better done through a customization probably."
   (case system-type
     ('windows-nt (list "/M" title message icon))
-    ('darwin (list title (if sticky "-s" "") "-m" message "--image" icon ))
+    ('darwin (list  "-n Emacs" title (if sticky "-s" "") "-m" message "--image" icon ))
     (t (list "-i" icon "-t"
              (if sticky "0" (int-to-string (* 1000 todochiku-timeout)))
              title message))))
