@@ -15,7 +15,6 @@
 ;; (require) your ELPA packages, configure them as normal
 
 (require 'my-packages)
-(require 'my-colors)
 (require 'my-moving)
 (require 'my-env)
 (require 'my-windows)
@@ -25,7 +24,6 @@
 (require 'my-vcs)
 (require 'my-editing)
 (require 'my-projects)
-
-(color-theme-solarized-dark)
+(require 'my-colors)
 
 (cd "~/")
