@@ -41,6 +41,7 @@
 		      ruby-tools
 		      sass-mode
 		      scss-mode
+		      sentence-highlight
 		      solarized-theme
 		      volatile-highlights
 		      workgroups
