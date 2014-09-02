@@ -15,7 +15,7 @@
 (defun find-rslam-files (dir)
   (concat "find " dir " -type d"
 	  " \\( -name \"*build\" -o -name \"*build_android\" -o -name \"*bin\" -o -wholename \"*share\" "
-	  " -o -name \"*ortho_sessions*\" \\) -prune "
+	  " -o -name \"*ortho_sessions*\" -o -name \"*abuild\" -o -name \"*sbuild\" \\) -prune "
 	  " -o -name \"*~\""
 	  " -o \\( -name \"*.cc\" -o -name \"*.h\" -o -name \"*Makefile*\" -o -name \"*.xml\" "
 	  " -o -name \"*.ui\" -o -name \"*.md\" -o -name \"*.py\" -o -name \"*.hpp\" -o -name \"*.proto\""
@@ -24,10 +24,11 @@
   )
 
 (setq my-project-source-patterns
-      '("*.h" "*.cc" "*.hpp" "*.cpp" "*.s" "*.py" "*.sh" "*.md" "*.txt" "*.cmake"))
+      '("*.h" "*.cc" "*.c" "*.hpp" "*.cpp" "*.s" "*.py" "*.sh" "*.md" "*.txt" "*.cmake" "*.proto"
+	"*.cmake" "*.xml" "*.hpp"))
 
 (setq my-project-ignore-patterns
-      '("*.o" "*.html" "*/build/*" "*build/*" "*build_android/*" " *.d" "#*" "*~" ".pyc"))
+      '("*.o" "*.html" "-path ./build -prune -o" "-path ./abuild -prune -o" "*/sbuild*/" "*build/*" "*build_android/*" " *.d" "#*" "*~" ".pyc"))
 
 (setq sfmpy-base-dir (expand-file-name "~/src/sfmpy/"))
 (project-def "sfmpy"
@@ -48,7 +49,6 @@
 (setq rslam-base-dir (expand-file-name "~/src/rslam/"))
 (project-def "rslam"
              `((basedir ,rslam-base-dir)
-	       (index-find-cmd ,(find-rslam-files "/Users/jack/src/rslam/"))
                (src-patterns ,my-project-source-patterns)
                (ignore-patterns ,my-project-ignore-patterns)
                (ignore-dirs '("*build*" "*build_android*"))
@@ -60,7 +60,7 @@
                (ack-args "--cpp")
                (startup-hook nil)
                (shutdown-hook nil)
-	       (tags-cmd "ctags -e --extra=fq -L - -o TAGS")
+	       (tags-cmd "sed \"s/^\\.\\///\" | ctags -e --extra=fq -L - -o TAGS")
                ))
 
 (defun switch-between-h-and-cc ()
