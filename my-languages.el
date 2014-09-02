@@ -4,7 +4,9 @@
 
 (add-hook 'org-mode-hook '(lambda () (visual-line-mode t) ) )
 
-(add-hook 'LaTeX-mode-hook '(lambda () (visual-line-mode 1) ) )
+(add-hook 'LaTeX-mode-hook '(lambda ()
+			      (visual-line-mode 1)
+			      (sentence-highlight-mode)) )
 ;; (add-hook 'LaTeX-mode-hook '(lambda () (flyspell-mode 1) ) )
 
 (require 'cmake-mode)
