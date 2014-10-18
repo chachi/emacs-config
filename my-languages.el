@@ -14,6 +14,7 @@
       (append '(("CMakeLists\\.txt\\'" . cmake-mode)
 		("Rakefile" . ruby-mode)
 		("\\.cmake\\'" . cmake-mode))
+		("\\.md\\'" . markdown-mode))
 	      auto-mode-alist))
 
 ;; (require 'ess-site)
