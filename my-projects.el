@@ -24,11 +24,34 @@
   )
 
 (setq my-project-source-patterns
-      '("*.h" "*.cc" "*.c" "*.hpp" "*.cpp" "*.s" "*.py" "*.sh" "*.md" "*.txt" "*.cmake" "*.proto"
-	"*.cmake" "*.xml" "*.hpp"))
+      '("*.h"
+	"*.cc"
+	"*.c"
+	"*.hpp"
+	"*.cpp"
+	"*.s"
+	"*.py"
+	"*.sh"
+	"*.md"
+	"*.txt"
+	"*.cmake"
+	"*.proto"
+	"*.cmake"
+	"*.xml"
+	"*.hpp"))
 
 (setq my-project-ignore-patterns
-      '("*.o" "*.html" "-path ./build -prune -o" "-path ./abuild -prune -o" "*/sbuild*/" "*build/*" "*build_android/*" " *.d" "#*" "*~" ".pyc"))
+      '("*.o"
+	"*.html"
+	"-path ./build -prune -o"
+	"-path ./abuild -prune -o"
+	"*/sbuild*/"
+	"*build/*"
+	"*build_android/*"
+	" *.d"
+	"#*"
+	"*~"
+	".pyc"))
 
 (setq sfmpy-base-dir (expand-file-name "~/src/sfmpy/"))
 (project-def "sfmpy"
