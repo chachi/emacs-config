@@ -13,7 +13,7 @@
 (setq auto-mode-alist
       (append '(("CMakeLists\\.txt\\'" . cmake-mode)
 		("Rakefile" . ruby-mode)
-		("\\.cmake\\'" . cmake-mode))
+		("\\.cmake\\'" . cmake-mode)
 		("\\.md\\'" . markdown-mode))
 	      auto-mode-alist))
 

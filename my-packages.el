@@ -13,6 +13,7 @@
 		      coffee-mode
 		      color-theme
 		      color-theme-solarized
+		      cpputils-cmake
 		      dash
 		      deft
 		      desktop
