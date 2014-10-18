@@ -85,7 +85,7 @@
 
 (setq whitespace-style (quote (face tabs trailing space-before-tab tab-mark lines)))
 (setq windmove-wrap-around t)
-(setq global-git-gutter-mode t)
+
 (provide 'my-custom)
 ;;; my-custom.el ends here
 

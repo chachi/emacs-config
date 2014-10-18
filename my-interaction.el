@@ -160,5 +160,8 @@
 (global-set-key (kbd "<f2>") 'multi-term)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(setq global-git-gutter-mode t)
+(git-gutter:linum-setup)
+
 (provide 'my-interaction)
 ;;; my-interaction.el ends here
