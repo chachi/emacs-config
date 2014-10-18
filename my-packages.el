@@ -20,6 +20,7 @@
 		      exec-path-from-shell
 		      flycheck
 		      gist
+		      git-gutter
 		      groovy-mode
 		      haml-mode
 		      handlebars-mode
