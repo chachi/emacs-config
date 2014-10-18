@@ -6,8 +6,7 @@
 (require 'tramp)
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/")
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+	     '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;; basic initialization, (require) non-ELPA packages, etc.
 (setq package-enable-at-startup nil)
