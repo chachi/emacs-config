@@ -37,7 +37,6 @@
 		      popup
 		      projectile
 		      protobuf-mode
-		      python
 		      rainbow-mode
 		      ruby-mode
 		      ruby-tools

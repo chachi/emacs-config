@@ -44,8 +44,8 @@
   (interactive)
   (java-mode)
   (subword-mode)    ; Uncomment to treat camelText words as separate
-  (setq tab-width 4)
-  (setq c-basic-offset 4)
+  (setq tab-width 2)
+  (setq c-basic-offset 2)
   (which-function-mode 1)
   (setq indent-tabs-mode nil)
   ;(setq compile-command "ant compile")
