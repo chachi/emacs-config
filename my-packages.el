@@ -14,6 +14,7 @@
 		      color-theme
 		      color-theme-solarized
 		      cpputils-cmake
+		      cuda-mode
 		      dash
 		      deft
 		      desktop
