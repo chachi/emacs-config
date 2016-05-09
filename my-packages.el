@@ -2,7 +2,6 @@
 ;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
 (require 'cl-lib)
 (defvar my-packages '(
-		      ack-and-a-half
 		      anything
 		      auctex
 		      auto-complete
