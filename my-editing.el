@@ -125,6 +125,7 @@
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 (exec-path-from-shell-copy-env "EDITOR")
+(exec-path-from-shell-copy-env "PYTHONPATH")
 
 (provide 'my-editing)
 ;;; my-editing.el ends here

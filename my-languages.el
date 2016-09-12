@@ -5,17 +5,21 @@
 (add-hook 'org-mode-hook '(lambda () (visual-line-mode t) ) )
 
 (add-hook 'LaTeX-mode-hook '(lambda ()
-			      (visual-line-mode 1)
-			      (sentence-highlight-mode)) )
+                              (visual-line-mode 1)
+                              (sentence-highlight-mode)) )
+(setq-default indent-tabs-mode nil)
+
 ;; (add-hook 'LaTeX-mode-hook '(lambda () (flyspell-mode 1) ) )
 
 (require 'cmake-mode)
 (setq auto-mode-alist
       (append '(("CMakeLists\\.txt\\'" . cmake-mode)
-		("Rakefile" . ruby-mode)
-		("\\.cmake\\'" . cmake-mode)
-		("\\.md\\'" . markdown-mode))
-	      auto-mode-alist))
+                ("Rakefile" . ruby-mode)
+                ("\\.cmake\\'" . cmake-mode)
+                ("\\.md\\'" . markdown-mode))
+              auto-mode-alist))
+
+(require 'rainbow-delimiters)
 
 ;; (require 'ess-site)
 
@@ -79,28 +83,37 @@
 (require 'yaml-mode)
 (require 'protobuf-mode)
 
-(require 'cpputils-cmake)
-(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
-(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
+;;(require 'cpputils-cmake)
+;;(add-hook 'c-mode-hook (lambda () (cppcm-reload-all)))
+;;(add-hook 'c++-mode-hook (lambda () (cppcm-reload-all)))
 
 ;; OPTIONAL, somebody reported that they can use this package with Fortran
-(add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
+;;(add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
 
 ;;; Configure cpputils-cmake for use with rpg-cmake (def_library/def_executable)
 (setq cppcm-cmake-target-regex
       "^\s*[^#]*\s*\\(\\(?:add\\|def\\)_\\(?:executable\\|library\\)\\)\s*(\\(\s*[^\s]+\\)")
 (setq cppcm-cmake-exe-regex "^\\(?:def\\|add\\)_executable")
 
-;; ;; OPTIONAL, avoid typing full path when starting gdb
-(global-set-key (kbd "C-c C-g")
-		'(lambda ()(interactive) (gud-gdb (concat "gdb --fullname "
-							  (cppcm-get-exe-path-current-buffer)))))
-
-(setq cppcm-write-flymake-makefile nil)
-
 (autoload 'andersl-cmake-font-lock-activate "andersl-cmake-font-lock" nil t)
 (require 'andersl-cmake-font-lock)
 (add-hook 'cmake-mode-hook 'andersl-cmake-font-lock-activate)
+
+(add-hook 'cider-repl-mode-hook #'eldoc-mode)
+(global-company-mode 1)
+
+;;; Refresh CIDER's REPL
+(defun cider-namespace-refresh ()
+  (interactive)
+  (cider-interactive-eval
+   "(require 'clojure.tools.namespace.repl)
+    (clojure.tools.namespace.repl/refresh)"))
+(add-hook 'clojure-mode-hook
+          '(lambda ()
+             (define-key clojure-mode-map (kbd "M-r")
+               'cider-namespace-refresh)))
+(add-hook 'clojure-mode-hook #'paredit-mode)
+
 
 (provide 'my-languages)
 ;;; my-languages.el ends here

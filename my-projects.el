@@ -38,6 +38,7 @@
 	"*.proto"
 	"*.cmake"
 	"*.xml"
+        "*.clj"
 	"*.hpp"))
 
 (setq my-project-ignore-patterns
@@ -51,7 +52,7 @@
 	" *.d"
 	"#*"
 	"*~"
-	".pyc"))
+	"*.pyc"))
 
 (setq sfmpy-base-dir (expand-file-name "~/src/sfmpy/"))
 (project-def "sfmpy"

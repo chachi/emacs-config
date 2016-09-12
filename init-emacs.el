@@ -1,4 +1,4 @@
-(let ((default-directory "~/.emacs.d/"))
+(let ((default-directory "~/.emacs.d/emacs-config"))
       (normal-top-level-add-to-load-path '("."))
       (normal-top-level-add-subdirs-to-load-path))
 (server-start)
