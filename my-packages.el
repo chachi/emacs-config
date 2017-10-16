@@ -11,7 +11,7 @@
                       cmake-mode
                       coffee-mode
                       color-theme
-                      color-theme-solarized
+                      color-theme-sanityinc-solarized
                       company
                       cpputils-cmake
                                         ;cuda-mode
@@ -44,7 +44,6 @@
                       ruby-tools
                       sass-mode
                       scss-mode
-                      sentence-highlight
                       solarized-theme
                       volatile-highlights
                       which-key
