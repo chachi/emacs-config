@@ -7,6 +7,7 @@
                       auto-indent-mode
                       autopair
                       cider
+                      clang-format
                       clojure-mode
                       cmake-mode
                       coffee-mode

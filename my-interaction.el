@@ -163,5 +163,8 @@
 (setq global-git-gutter-mode t)
 (git-gutter:linum-setup)
 
+(with-eval-after-load 'magit-mode
+  (define-key magit-mode-map (kbd "C-x a") nil))
+
 (provide 'my-interaction)
 ;;; my-interaction.el ends here

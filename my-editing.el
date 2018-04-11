@@ -127,5 +127,8 @@
 (exec-path-from-shell-copy-env "EDITOR")
 (exec-path-from-shell-copy-env "PYTHONPATH")
 
+(require 'clang-format)
+(global-set-key (kbd "C-M-i") 'clang-format-region)
+
 (provide 'my-editing)
 ;;; my-editing.el ends here
