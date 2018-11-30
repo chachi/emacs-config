@@ -120,7 +120,7 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(require 'anything)
+;(require 'anything)
 
 (require 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
