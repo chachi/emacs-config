@@ -1,8 +1,7 @@
 ;; Following code adapted from Emacs-Prelude @
 ;; http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
 (require 'cl-lib)
-(defvar my-packages '(anything
-                      auctex
+(defvar my-packages '(auctex
                       auto-complete
                       auto-indent-mode
                       autopair

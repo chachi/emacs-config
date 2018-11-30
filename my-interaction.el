@@ -157,6 +157,7 @@
 
 (setq compilation-always-kill t)
 (setq compilation-skip-threshold 2)
+(add-to-list 'desktop-globals-to-save 'compile-command)
 (global-set-key (kbd "<f2>") 'multi-term)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -165,6 +166,9 @@
 
 (with-eval-after-load 'magit-mode
   (define-key magit-mode-map (kbd "C-x a") nil))
+
+(add-to-list 'load-path "/opt/ros/kinetic/share/emacs/site-lisp")
+(require 'rosemacs-config)
 
 (provide 'my-interaction)
 ;;; my-interaction.el ends here

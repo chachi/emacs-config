@@ -2,10 +2,11 @@
 (global-font-lock-mode t)
 (setq font-lock-maximum-decoration 3)
 
-(require 'color-theme)
-(require 'color-theme-solarized)
+(require 'color-theme-sanityinc-solarized)
 
 (global-set-key (kbd "<f12>") 'color-theme-sanityinc-solarized-dark)
+
+(color-theme-sanityinc-solarized-dark)
 
 ;; hl-line: highlight the current line
 ;; (when (fboundp 'global-hl-line-mode)
