@@ -5,6 +5,7 @@
 (require 'color-theme-sanityinc-solarized)
 
 (global-set-key (kbd "<f12>") 'color-theme-sanityinc-solarized-dark)
+(global-set-key (kbd "<M-f12>") 'color-theme-sanityinc-solarized-light)
 
 (color-theme-sanityinc-solarized-dark)
 
