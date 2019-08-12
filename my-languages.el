@@ -115,5 +115,22 @@
 (add-hook 'clojure-mode-hook #'paredit-mode)
 
 
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(setq rust-format-on-save t)
+
+(require 'rustic)
+(setq rustic-rls-pkg nil)
+
+;; (use-package lsp-mode
+;;              :init
+;;              (add-hook 'prog-mode-hook 'lsp-mode)
+;;              :config
+;;              (use-package lsp-flycheck
+;;                           :ensure f ; comes with lsp-mode
+;;                           :after flycheck))
+;; (use-package lsp-rust
+;;              :after lsp-mode)
+
 (provide 'my-languages)
 ;;; my-languages.el ends here
