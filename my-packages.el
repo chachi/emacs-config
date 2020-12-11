@@ -10,7 +10,7 @@
                       clojure-mode
                       cmake-mode
                       coffee-mode
-                      color-theme
+                      color-theme-modern
                       color-theme-sanityinc-solarized
                       company
                       cpputils-cmake

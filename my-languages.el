@@ -102,6 +102,28 @@
 (add-hook 'cider-repl-mode-hook #'eldoc-mode)
 (global-company-mode 1)
 
+(require 'company-capf)
+(push 'company-capf company-backends)
+
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(setq rust-format-on-save t)
+
+(setq lsp-keymap-prefix "s-l")
+(require 'lsp-mode)
+(require 'which-key)
+
+(add-hook 'rust-mode-hook #'lsp)
+
+(setq company-minimum-prefix-length 1
+      company-idle-delay 0.0) ;; default is 0.2
+
+(with-eval-after-load 'lsp-mode
+  ;; :project/:workspace/:file
+  (setq lsp-diagnostics-modeline-scope :project)
+  (add-hook 'lsp-managed-mode-hook 'lsp-diagnostics-modeline-mode)
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+
 ;;; Refresh CIDER's REPL
 (defun cider-namespace-refresh ()
   (interactive)
@@ -114,23 +136,6 @@
                'cider-namespace-refresh)))
 (add-hook 'clojure-mode-hook #'paredit-mode)
 
-
-(autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-(setq rust-format-on-save t)
-
-(require 'rustic)
-(setq rustic-rls-pkg nil)
-
-;; (use-package lsp-mode
-;;              :init
-;;              (add-hook 'prog-mode-hook 'lsp-mode)
-;;              :config
-;;              (use-package lsp-flycheck
-;;                           :ensure f ; comes with lsp-mode
-;;                           :after flycheck))
-;; (use-package lsp-rust
-;;              :after lsp-mode)
 
 (provide 'my-languages)
 ;;; my-languages.el ends here

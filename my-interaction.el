@@ -167,8 +167,8 @@
 (with-eval-after-load 'magit-mode
   (define-key magit-mode-map (kbd "C-x a") nil))
 
-(add-to-list 'load-path "/opt/ros/kinetic/share/emacs/site-lisp")
-(require 'rosemacs-config)
+;(add-to-list 'load-path "/opt/ros/melodic/share/emacs/site-lisp")
+;(require 'rosemacs-config)
 
 (provide 'my-interaction)
 ;;; my-interaction.el ends here
