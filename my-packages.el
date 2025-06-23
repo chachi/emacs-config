@@ -4,7 +4,7 @@
 (defvar my-packages '(auctex
                       auto-complete
                       auto-indent-mode
-                      autopair
+                      flex-autopair
                       cider
                       clang-format
                       clojure-mode
@@ -29,6 +29,7 @@
                       haskell-mode
                       inf-ruby
                       jedi
+                      lsp-mode
                       magit
                       matlab-mode
                       markdown-mode

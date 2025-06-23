@@ -74,12 +74,8 @@
 
 (setq-default ispell-program-name "ispell")
 
-(require 'autopair)
-(add-hook 'term-mode-hook
-          #'(lambda () (setq autopair-dont-activate t)))
-
-(add-hook 'c-mode-common-hook #'(lambda () (autopair-mode)))
-(add-hook 'python-mode-hook #'(lambda () (autopair-mode)))
+(require 'flex-autopair)
+(flex-autopair-mode 1)
 
 ;; Major life saver --- auto-indents yanked code
 (dolist (command '(yank yank-pop))
@@ -112,8 +108,7 @@
 
 (require 'paredit)
 (setq my-lisp-par-hook #'(lambda ()
-			   (paredit-mode 1)
-			   (autopair-mode -1)))
+			   (paredit-mode 1)))
 (add-hook 'lisp-mode-hook my-lisp-par-hook)
 (add-hook 'emacs-lisp-mode-hook my-lisp-par-hook)
 
