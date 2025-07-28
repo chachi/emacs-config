@@ -4,6 +4,7 @@
 (defvar my-packages '(auctex
                       auto-complete
                       auto-indent-mode
+                      bazel
                       flex-autopair
                       cider
                       clang-format
@@ -25,6 +26,7 @@
                       git-gutter
                       groovy-mode
                       haml-mode
+                      hcl-mode
                       handlebars-mode
                       haskell-mode
                       inf-ruby
@@ -43,6 +45,7 @@
                       rainbow-delimiters
                       ruby-mode
                       ruby-tools
+                      rust-mode
                       sass-mode
                       scss-mode
                       solarized-theme

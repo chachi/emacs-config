@@ -5,7 +5,7 @@
 (global-set-key (kbd "<f7>") 'recompile)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
-(global-set-key (kbd "<f5>") 'linum-mode)
+(global-set-key (kbd "<f5>") 'display-line-numbers-mode)
 
 ;; make option key meta
 (setq mac-command-modifier 'meta)
