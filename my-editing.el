@@ -117,10 +117,10 @@
 
 ;(require 'anything)
 
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
-(exec-path-from-shell-copy-env "EDITOR")
-(exec-path-from-shell-copy-env "PYTHONPATH")
+;; (require 'exec-path-from-shell)
+;; (exec-path-from-shell-initialize)
+;; (exec-path-from-shell-copy-env "EDITOR")
+;; (exec-path-from-shell-copy-env "PYTHONPATH")
 
 (require 'clang-format)
 (global-set-key (kbd "C-M-i") 'clang-format-region)
