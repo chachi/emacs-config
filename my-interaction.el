@@ -41,6 +41,8 @@
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<right>") 'windmove-right)
+(global-set-key (kbd "\C-c\C-c") 'comment-region)
+(global-set-key (kbd "\C-c\C-u") 'uncomment-region)
 
 (define-key global-map [f7] 'recompile)
 (define-key global-map [f8] 'next-error)
